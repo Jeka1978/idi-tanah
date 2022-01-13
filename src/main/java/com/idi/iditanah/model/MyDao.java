@@ -31,6 +31,11 @@ public class MyDao {
         return (Person) entityManager.createQuery("from Person").getSingleResult();
     }
 
+    @Transactional
+    public List<Person> findAll() {
+        return entityManager.createQuery("from Person").getResultList();
+    }
+
 
     @Transactional
     public void savePerson(Person person) {
